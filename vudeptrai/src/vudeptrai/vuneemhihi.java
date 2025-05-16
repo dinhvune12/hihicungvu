@@ -72,7 +72,19 @@ public class vuneemhihi {
 		cong.setBounds(76, 259, 85, 21);
 		frame.getContentPane().add(cong);
 		
-		JButton nhan = new JButton("nhân");
+		JButton nhan = new JButton("nhân");//nhan lam
+		nhan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+	            try {
+	                double a = Double.parseDouble(soA.getText());
+	                double b = Double.parseDouble(soB.getText());
+	                double res = a * b;
+	                javax.swing.JOptionPane.showMessageDialog(frame, "Kết quả nhân: " + res);
+	            } catch (NumberFormatException ex) {
+	                javax.swing.JOptionPane.showMessageDialog(frame, "Nhập số chuẩn vào nha!");
+	            }
+	        }
+		});
 		nhan.setBounds(440, 259, 85, 21);
 		frame.getContentPane().add(nhan);
 		
