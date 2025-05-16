@@ -12,7 +12,7 @@ public class cong extends JFrame {
 
     private JTextField textA;
     private JTextField textB;
-
+//hihiih
     public cong() {
         setTitle("Form Cộng");
         setBounds(100, 100, 450, 300);
