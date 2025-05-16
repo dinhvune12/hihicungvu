@@ -69,6 +69,10 @@ public class vuneemhihi {
 		frame.getContentPane().add(lblSB);
 		
 		JButton cong = new JButton("cong");
+		cong.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		cong.setBounds(76, 259, 85, 21);
 		frame.getContentPane().add(cong);
 		
@@ -85,6 +89,23 @@ public class vuneemhihi {
 		frame.getContentPane().add(tru);
 		
 		JButton chia = new JButton("chia");
+		chia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					double a = Double.parseDouble(soA.getText());
+					double b = Double.parseDouble(soB.getText());
+					
+					if (b == 0) {
+						lblSB.setText("Không thể chia cho 0");
+					} else {
+						double ketQua = a / b;
+						lblSB.setText("Kết quả: " + ketQua);
+					}
+				} catch (NumberFormatException ex) {
+					lblSB.setText("Vui lòng nhập số hợp lệ");
+				}
+			}
+		});
 		chia.setBounds(637, 259, 85, 21);
 		frame.getContentPane().add(chia);
 	}
