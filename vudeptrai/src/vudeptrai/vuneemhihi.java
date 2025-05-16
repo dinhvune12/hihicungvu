@@ -15,6 +15,7 @@ public class vuneemhihi {
 	private JTextField soB;
 	private JTextField soA;
 	private JLabel lblSB;
+	private JLabel ketQua; // Label hiển thị kết quả
 
 	/**
 	 * Launch the application.
@@ -68,9 +69,22 @@ public class vuneemhihi {
 		lblSB.setBounds(170, 124, 88, 36);
 		frame.getContentPane().add(lblSB);
 		
+		
 		JButton cong = new JButton("cong");
 		cong.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				try {
+					double a = Double.parseDouble(soA.getText());
+					double b = Double.parseDouble(soB.getText());
+					double tong = a + b;
+					// Hiện thông báo kết quả
+					javax.swing.JOptionPane.showMessageDialog(null, "Kết quả: " + tong);
+				} catch (NumberFormatException ex) {
+					// Hiện thông báo lỗi nếu nhập sai
+					javax.swing.JOptionPane.showMessageDialog(null, "Vui lòng nhập đúng số!");
+				}
+				
 			}
 		});
 		cong.setBounds(76, 259, 85, 21);
@@ -81,10 +95,6 @@ public class vuneemhihi {
 		frame.getContentPane().add(nhan);
 		
 		JButton tru = new JButton("trừ");
-		tru.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		tru.setBounds(255, 259, 85, 21);
 		frame.getContentPane().add(tru);
 		
@@ -108,5 +118,24 @@ public class vuneemhihi {
 		});
 		chia.setBounds(637, 259, 85, 21);
 		frame.getContentPane().add(chia);
+		
+		// Label hiển thị kết quả
+		ketQua = new JLabel("Kết quả:");
+		ketQua.setBounds(170, 320, 500, 30);
+		frame.getContentPane().add(ketQua);
+
+		// Xử lý phép trừ
+		tru.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					double a = Double.parseDouble(soA.getText());
+					double b = Double.parseDouble(soB.getText());
+					double result = a - b;
+					ketQua.setText("Kết quả: " + a + " - " + b + " = " + result);
+				} catch (NumberFormatException ex) {
+					ketQua.setText("Vui lòng nhập số hợp lệ!");
+				}
+			}
+		});
 	}
 }
