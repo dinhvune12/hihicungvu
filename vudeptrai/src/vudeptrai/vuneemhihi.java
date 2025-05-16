@@ -69,7 +69,23 @@ public class vuneemhihi {
 		lblSB.setBounds(170, 124, 88, 36);
 		frame.getContentPane().add(lblSB);
 		
+		
 		JButton cong = new JButton("cong");
+		cong.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					double a = Double.parseDouble(soA.getText());
+					double b = Double.parseDouble(soB.getText());
+					double tong = a + b;
+					// Hiện thông báo kết quả
+					javax.swing.JOptionPane.showMessageDialog(null, "Kết quả: " + tong);
+				} catch (NumberFormatException ex) {
+					// Hiện thông báo lỗi nếu nhập sai
+					javax.swing.JOptionPane.showMessageDialog(null, "Vui lòng nhập đúng số!");
+				}
+				
+			}
+		});
 		cong.setBounds(76, 259, 85, 21);
 		frame.getContentPane().add(cong);
 		
